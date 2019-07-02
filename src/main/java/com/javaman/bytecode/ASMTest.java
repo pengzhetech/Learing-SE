@@ -1,4 +1,4 @@
-package com.javaman.proxy;
+package com.javaman.bytecode;
 
 import java.io.File;
 import java.io.FileOutputStream;
