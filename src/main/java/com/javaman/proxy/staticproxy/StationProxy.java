@@ -1,8 +1,5 @@
 package com.javaman.proxy.staticproxy;
 
-import com.javaman.proxy.Station;
-import com.javaman.proxy.TicketService;
-
 /**
  * @author pengzhe 代售点 proxy
  * @date 2019-07-02 17:45

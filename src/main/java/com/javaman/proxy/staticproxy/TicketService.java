@@ -1,4 +1,4 @@
-package com.javaman.proxy;
+package com.javaman.proxy.staticproxy;
 
 /**
  * @author pengzhe 车票服务 Subject

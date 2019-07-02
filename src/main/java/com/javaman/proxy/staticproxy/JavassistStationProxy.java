@@ -1,9 +1,7 @@
-package com.javaman.proxy.dynamicproxy;
+package com.javaman.proxy.staticproxy;
 
 import java.lang.reflect.Constructor;
 
-import com.javaman.proxy.Station;
-import com.javaman.proxy.TicketService;
 import javassist.*;
 
 /**
@@ -13,7 +11,7 @@ import javassist.*;
  * @date 2019-07-02 17:48
  */
 
-public class DynamicStationProxy {
+public class JavassistStationProxy {
 
     public static void main(String[] args) throws Exception {
         createProxy();
@@ -25,15 +23,15 @@ public class DynamicStationProxy {
         CtClass cc = pool.makeClass("com.javaman.proxy.StationProxy");
 
         //设置接口
-        CtClass interface1 = pool.get("com.javaman.proxy.TicketService");
+        CtClass interface1 = pool.get("com.javaman.proxy.staticproxy.TicketService");
         cc.setInterfaces(new CtClass[] {interface1});
 
         //设置Field
-        CtField field = CtField.make("private com.javaman.proxy.Station station;", cc);
+        CtField field = CtField.make("private com.javaman.proxy.staticproxy.Station station;", cc);
 
         cc.addField(field);
 
-        CtClass stationClass = pool.get("com.javaman.proxy.Station");
+        CtClass stationClass = pool.get("com.javaman.proxy.staticproxy.Station");
         CtClass[] arrays = new CtClass[] {stationClass};
         CtConstructor ctc = CtNewConstructor.make(arrays, null, CtNewConstructor.PASS_NONE, null, null, cc);
         //设置构造函数内部信息
