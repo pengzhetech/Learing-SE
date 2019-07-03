@@ -2,6 +2,7 @@ package com.javaman.proxy.dynamicproxy.cglib;
 
 import net.sf.cglib.core.DebuggingClassWriter;
 import net.sf.cglib.proxy.Enhancer;
+
 /**
  * @author pengzhe
  * @date 2019-07-02 19:51
@@ -9,7 +10,9 @@ import net.sf.cglib.proxy.Enhancer;
 public class CGLIBProxy {
     public static void main(String[] args) {
 
-        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY,CGLIBProxy.class.getClass().getResource("/").getPath());
+        //将生成的代理类保存到磁盘
+        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY,
+            CGLIBProxy.class.getClass().getResource("/").getPath());
 
         Programmer progammer = new Programmer();
 
@@ -20,9 +23,8 @@ public class CGLIBProxy {
         enhancer.setSuperclass(progammer.getClass());
         // 设置回调，这里相当于是对于代理类上所有方法的调用，都会调用CallBack，而Callback则需要实行intercept()方法进行拦截
         enhancer.setCallback(hacker);
-        Programmer proxy =(Programmer)enhancer.create();
+        Programmer proxy = (Programmer)enhancer.create();
         proxy.code();
-
 
     }
 }

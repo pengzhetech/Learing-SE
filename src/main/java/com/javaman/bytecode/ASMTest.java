@@ -46,10 +46,11 @@ public class ASMTest {
         methodVisitor.visitEnd();
         classWriter.visitEnd();
 
-
         // 使classWriter类已经完成
         // 将classWriter转换成字节数组写到文件里面去
         byte[] data = classWriter.toByteArray();
+
+
 
         File file = new File(System.getProperty("user.dir")+"/Programmer.class");
         FileOutputStream fout = new FileOutputStream(file);
