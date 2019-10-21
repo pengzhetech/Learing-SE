@@ -103,7 +103,7 @@ public class ClassLoaderTest {
         String className2 = "com.javaman.classloader.C";
 
         loadClass(new File("/Users/pengzhe/code/Learing-SE/cl1"), className1);
-        loadClass(new File("/Users/pengzhe/code/Learing-SE/cl2"), className2);
+        loadClass(new File("/Users/pengzhe/code/Learing-SE/cl1"), className2);
 
         System.out.println("--------------------------------");
 
