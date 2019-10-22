@@ -103,6 +103,9 @@ public class ClassLoaderTest {
     }
 
     public void testCL() throws Exception {
+
+        System.out.println("ClassLoaderTest的类加载器:"+ClassLoaderTest.class.getClassLoader());
+
         String className1 = "com.javaman.classloader.B";
         String className2 = "com.javaman.classloader.C";
 
