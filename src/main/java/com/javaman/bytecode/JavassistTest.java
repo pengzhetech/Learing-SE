@@ -20,6 +20,13 @@ public class JavassistTest {
         method.insertBefore("System.out.println(\"I'm a Programmer,Just Coding.....\");");
         cc.addMethod(method);
 
+        //定义code方法
+        CtMethod coding = CtNewMethod.make("public void coding(){}", cc);
+
+        //插入方法代码
+        coding.insertBefore("System.out.println(\"哲哥.....\");");
+        cc.addMethod(coding);
+
         //保存生成的字节码
         cc.writeFile(System.getProperty("user.dir"));
         System.out.println("finished");
