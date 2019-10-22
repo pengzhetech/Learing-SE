@@ -10,6 +10,9 @@ import java.net.URLClassLoader;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * -verbose:class
+ */
 public class ClassLoaderTest {
     @SuppressWarnings("rawtypes")
     private static Map<String, Class> map = new HashMap<String, Class>();
@@ -80,7 +83,7 @@ public class ClassLoaderTest {
         }
 
         private String classNameToPath(String name) {
-            String classPath = this.getURLs()[0].toString() + "/" + name.replace(".", "/") + ".class";
+            String classPath = getURLs()[0].toString() + name.replace(".", "/") + ".class";
             System.out.println("[Loaded----- " + name + " from " + classPath);
             return classPath;
         }
@@ -88,6 +91,7 @@ public class ClassLoaderTest {
 
     public static void loadClass(File file, String className) throws Exception {
         ModuleClassLoader mcl = new ModuleClassLoader(new URL[] {file.toURL()}, null);
+        System.out.println(mcl.getParent());
         Class cls = mcl.loadClass(className);
         map.put(cls.getName(), cls);
 
