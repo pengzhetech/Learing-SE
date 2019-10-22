@@ -104,11 +104,12 @@ public class ClassLoaderTest {
 
     public void testCL() throws Exception {
 
-        System.out.println("ClassLoaderTest的类加载器:"+ClassLoaderTest.class.getClassLoader());
+        System.out.println("ClassLoaderTest的类加载器:" + ClassLoaderTest.class.getClassLoader());
 
         String className1 = "com.javaman.classloader.B";
         String className2 = "com.javaman.classloader.C";
 
+        //通过ModuleClassLoader来加载类
         loadClass(new File("/Users/pengzhe/code/Learing-SE/cl1"), className1);
         loadClass(new File("/Users/pengzhe/code/Learing-SE/cl1"), className2);
 
@@ -118,7 +119,7 @@ public class ClassLoaderTest {
         ReLaunchClassLoader icl = new ReLaunchClassLoader(new URL[] {file2.toURL()},
             ClassLoaderTest.class.getClassLoader().getParent());
         Class c_class = Class.forName("com.javaman.classloader.A", true, icl); // 相当于Spring-Boot中的 Application
-        System.out.println("a cl:" + c_class.getClassLoader());
+        System.out.println("类A加载器的父类加载器 cl:" + c_class.getClassLoader());
         Object c = c_class.newInstance();
         Method m1 = c_class.getDeclaredMethod("testB"); // 相当于执行了main方法，基他的类都在ReLaunCL这个classloader之内执行
         m1.invoke(c);
