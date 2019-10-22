@@ -91,7 +91,7 @@ public class ClassLoaderTest {
 
     public static void loadClass(File file, String className) throws Exception {
         ModuleClassLoader mcl = new ModuleClassLoader(new URL[] {file.toURL()}, null);
-        System.out.println(mcl.getParent());
+        System.out.println(className+"类加载器的父类加载器:"+mcl.getParent());
         Class cls = mcl.loadClass(className);
         map.put(cls.getName(), cls);
 
@@ -103,6 +103,8 @@ public class ClassLoaderTest {
     }
 
     public void testCL() throws Exception {
+
+        System.out.println(System.getProperty("java.class.path"));
 
         System.out.println("ClassLoaderTest的类加载器:" + ClassLoaderTest.class.getClassLoader());
 
