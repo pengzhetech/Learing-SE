@@ -19,7 +19,7 @@ public class InvocationHandlerImpl implements InvocationHandler {
     public Object invoke(Object paramObject, Method paramMethod,
         Object[] paramArrayOfObject) throws Throwable {
         System.out.println("You are going to invoke " + paramMethod.getName() + " ...");
-        paramMethod.invoke(car, null);
+        paramMethod.invoke(car, paramArrayOfObject);
         System.out.println(paramMethod.getName() + " invocation Has Been finished...");
         return null;
     }

@@ -29,6 +29,8 @@ public class JDKProxy {
              c.然后调用newInstance()创建实例
      */
         Object instance = Proxy.newProxyInstance(classLoader, interfaces, handler);
+        Class<?> proxyClass = Proxy.getProxyClass(classLoader, interfaces);
+        System.out.println("proxyClass------>"+proxyClass.getName());
         Vehicle vehicle = (Vehicle)instance;
         vehicle.drive();
         System.out.println("-----------------------------------------------");
