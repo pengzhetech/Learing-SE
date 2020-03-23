@@ -8,4 +8,5 @@ public interface INumberOperate {
 
     int operate(int a, int b);
 
+
 }
