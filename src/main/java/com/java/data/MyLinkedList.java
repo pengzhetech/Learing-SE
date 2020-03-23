@@ -1,4 +1,4 @@
-package com.java.leetcode;
+package com.java.data;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
