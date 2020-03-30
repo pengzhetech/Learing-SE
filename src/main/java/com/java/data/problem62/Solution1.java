@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 /**
+ * 约瑟夫环问题
  * 模拟解法
  * https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/solution/javajie-jue-yue-se-fu-huan-wen-ti-gao-su-ni-wei-sh/
  */
@@ -17,7 +18,7 @@ public class Solution1 {
         }*/
         List<Integer> list1 = new ArrayList<>();
         IntStream.range(0, n).forEach(list1::add);
-        //此次需要删除的位置
+        //下一个开始报数的位置,即此次删除开始报数的位置
         int idx = 0;
         while (n > 1) {
             //下一个需要删除的位置 idx + m - 1
