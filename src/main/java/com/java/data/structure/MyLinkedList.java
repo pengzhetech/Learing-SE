@@ -1,4 +1,4 @@
-package com.java.data;
+package com.java.data.structure;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
