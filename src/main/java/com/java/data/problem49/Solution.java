@@ -7,6 +7,7 @@ class Solution {
         Map<String, List<String>> map = new HashMap<>();
         for (String str : strs) {
             char[] s = str.toCharArray();
+            //排序以便找到一样的字符串
             Arrays.sort(s);
             String find = new String(s);
             if (map.containsKey(find)) {
