@@ -10,8 +10,8 @@ package com.java.datastructrue.problem2;
  */
 public class Solution2 {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode pre = new ListNode(0);
-        ListNode currentNode = pre;
+        ListNode head = new ListNode(0);
+        ListNode cur = head;
         int carry = 0;
         while (l1 != null || l2 != null) {
             int x = l1 == null ? 0 : l1.val;
@@ -20,18 +20,18 @@ public class Solution2 {
 
             carry = sum / 10;
             sum = sum % 10;
-            currentNode.next = new ListNode(sum);
+            cur.next = new ListNode(sum);
             //移动链表当前指针
-            currentNode = currentNode.next;
+            cur = cur.next;
             if (l1 != null)
                 l1 = l1.next;
             if (l2 != null)
                 l2 = l2.next;
         }
         if (carry == 1) {
-            currentNode.next = new ListNode(carry);
+            cur.next = new ListNode(carry);
         }
-        return pre.next;
+        return head.next;
     }
 
     public static void main(String[] args) {
@@ -49,6 +49,7 @@ public class Solution2 {
         l4.next = l5;
         l5.next = l6;
 
+       // System.out.println(addTwoNumbers(l1,l4));
         //  ListNode listNode = addTwoNumbers(l1, l4);
 
         //9->-8>-7
@@ -57,15 +58,11 @@ public class Solution2 {
         ListNode l9 = new ListNode(9);
         l7.next = l8;
         l8.next = l9;
-        System.out.println(l7);
         //2->-3
         ListNode l10 = new ListNode(3);
         l10.next = new ListNode(2);
-        System.out.println(l10);
-        System.out.println(addTwoNumbers(l7, l10));
+       System.out.println(addTwoNumbers(l7, l10));
 
-        System.out.println(12 / 10);
-        System.out.println(19 / 10);
 
     }
 
