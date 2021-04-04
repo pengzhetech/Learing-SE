@@ -10,6 +10,7 @@ public class LoadClassTest {
     public static void main(String[] args)
         throws ClassNotFoundException, IllegalAccessException, InstantiationException {
 
+
         MyClassLoader loader = new MyClassLoader("/Users/pengzhe/code/Learing-SE");
         //使用自定义的类加载器将 加载该类并转换成Class对象
         Class<?> clazz = loader.loadClass("com.javaman.Programmer");
