@@ -17,12 +17,7 @@ public class PriorityQueueTest {
             System.out.println(i);
         }
 
-        Comparator<Student> comparator = new Comparator<Student>() {
-            @Override
-            public int compare(Student o1, Student o2) {
-                return (o1.id - o2.id);
-            }
-        };
+        Comparator<Student> comparator = Comparator.comparingInt(o -> o.id);
 
         Queue<Student> queue2 = new PriorityQueue<Student>(comparator);
         queue2.add(new Student(2, "B"));
