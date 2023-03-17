@@ -3,18 +3,12 @@ package com.in;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.Collections;
 
 public class TestCode {
 
     @Test
     public void test() {
-        System.out.println(sum(5));
-        int[] nums = {1, 23, 0, 78, 0, 8, 0};
-        System.out.println(Arrays.toString(nums));
-        moveZero(nums);
-        System.out.println(Arrays.toString(nums));
+        System.out.println(trailingZeroes(10));
     }
 
     public int sum(int days) {
@@ -38,5 +32,14 @@ public class TestCode {
             }
         }
 
+    }
+
+    public int trailingZeroes(int n) {
+        int count = 0;
+        while (n > 0) {
+            count += n / 5;
+            n = n / 5;
+        }
+        return count;
     }
 }
