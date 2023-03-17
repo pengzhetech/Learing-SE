@@ -3,11 +3,18 @@ package com.in;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class TestCode {
 
     @Test
     public void test() {
         System.out.println(sum(5));
+        int[] nums = {1, 23, 0, 78, 0, 8, 0};
+        System.out.println(Arrays.toString(nums));
+        moveZero(nums);
+        System.out.println(Arrays.toString(nums));
     }
 
     public int sum(int days) {
@@ -18,7 +25,18 @@ public class TestCode {
         return total;
     }
 
-    void moveZero() {
+    void moveZero(int[] nums) {
+        if (nums == null) return;
+
+        int j = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                int tmm = nums[i];
+                nums[i] = nums[j];
+                nums[j++] = tmm;
+            }
+        }
 
     }
 }
