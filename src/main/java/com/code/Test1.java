@@ -11,7 +11,8 @@ public class Test1 {
 
     @Test
     public void test() {
-
+        String s = "001";
+        System.out.println(Integer.parseInt(s));
 
     }
 
