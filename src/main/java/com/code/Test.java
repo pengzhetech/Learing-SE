@@ -1,5 +1,6 @@
 package com.code;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -77,11 +78,36 @@ public class Test {
     private boolean isPalindromeList(ListNode head) {
 
 
-
-
         return false;
     }
 
+    /**
+     * nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+     */
+    @org.junit.Test
+    public void testMerge() {
+        int[] arr1 = {1, 2, 3, 0, 0, 0};
+        int[] arr2 = {2, 5, 6};
+        System.out.println(Arrays.toString(arr1));
+        merge(arr1, 3, arr2, 3);
+        System.out.println(Arrays.toString(arr1));
+
+    }
+
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        while (n > 0 && m > 0) {
+            if (nums1[m - 1] > nums2[n - 1]) {
+                nums1[n + m - 1] = nums1[m - 1];
+                m--;
+            } else {
+                nums1[n + m - 1] = nums2[n - 1];
+                n--;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            nums1[i] = nums2[i];
+        }
+    }
 
 }
 
