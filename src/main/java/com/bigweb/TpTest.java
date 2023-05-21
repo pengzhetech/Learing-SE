@@ -52,4 +52,10 @@ public class TpTest {
         System.out.println(System.currentTimeMillis() - startTime);
         System.out.println(list.size());
     }
+
+    @Test
+    public void test2() {
+        System.out.println("Test");
+    }
+
 }
