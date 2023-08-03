@@ -6,6 +6,9 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,12 +26,22 @@ public class Remove {
         }
     }*/
 
-    public static void main(String[] args) {
-        String url = "https://h5cdn-sig-sign.dewu.com/202307261027/5a2a4d293a6ea4c148ac12aa0bdf1b42/global/poizon-deal-h5/2000000004/f9eaf4bacc7882a51bc8232eee6d71a7.jpeg";
-        String patternStr = ".*/(global/.*)";
-        String newUrl = url.replaceAll(patternStr, "$1");
-        System.out.println(newUrl);
-        //System.out.println("https://h5cdn-sig-sign.dewu.com/"+newUrl);
+
+
+    public static String generateCode(String url) throws NoSuchAlgorithmException {
+        MessageDigest sha1 = MessageDigest.getInstance("SHA-1"); //使用SHA-1算法生成摘要
+        byte[] digest = sha1.digest(url.getBytes(StandardCharsets.UTF_8)); //将url字符串转换为字节数组，并生成摘要
+        StringBuilder builder = new StringBuilder();
+        for (byte b : digest) {
+            builder.append(String.format("%02x", b)); //将字节转换成16进制的字符串，拼接起来
+        }
+        return builder.toString();
+    }
+
+    public static void main(String[] args) throws NoSuchAlgorithmException {
+        String url = "https://example.com/imagess.jpg";
+        String uniqueCode = generateCode(url);
+        System.out.println(uniqueCode); //9c7a7fc26411f8fff3d858c42107e1f25a84d00d
     }
 
 }
