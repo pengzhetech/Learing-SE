@@ -13,8 +13,15 @@ public class Main {
     private static final long MIN_VALUE = -9999999999999999L;
 
     public static void main(String[] args) {
-        System.out.println(numberToChinese(12345_5678_9098_7654L)); // 一万二千三百四十五亿五千六百七十八万九千零九十八亿七千六百五十四
-        System.out.println(numberToChinese(1000_0000_0000_0002L)); // 一千万亿零二
+        // 获取当前日期
+        Calendar cal = Calendar.getInstance();
+
+        // 将日设置为 1，这样可以获取该日期所在的自然月
+        cal.set(Calendar.DATE, 1);
+
+        // 获取自然月
+        int naturalMonth = cal.get(Calendar.MONTH) + 1;
+        System.out.println("自然月：" + naturalMonth);
     }
     public static String numberToChinese(long number) {
         String[] units = {"零", "一", "二", "三", "四", "五", "六", "七", "八", "九"}; //定义中文数字
