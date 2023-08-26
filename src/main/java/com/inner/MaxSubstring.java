@@ -1,7 +1,6 @@
 package com.inner;
 
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Test;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -11,7 +10,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class MaxSubstring {
-    @Test
     public void test() {
         String s = "ssssssff";
         System.out.println(maxSubStringLength(s));
@@ -35,7 +33,6 @@ public class MaxSubstring {
         return ans;
     }
 
-    @Test
     public void testL() {
         System.out.println(10000%100);
 
