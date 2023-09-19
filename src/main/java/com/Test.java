@@ -10,9 +10,27 @@ import java.util.HashMap;
 
 public class Test {
 
+    public static void main(String[] args) {
+        String str = "1_10239,11_10239,111_10239,1_10242,11_10242,111_10242,1_36,11_36,111_36,1_10387,11_10387,111_10387,105_1000813,104_1000366,11_10119,11_10032,11_10045,11_10010,11_1000259,11_1001452,11_10054,11_10015,1_10085,56_10074,56_10207,2_10195,2_10219,5_10219,6_10219,11_10026";
+        String[] arr = str.split(",");
+        StringBuilder sb = new StringBuilder();
+        for (String s : arr) {
+            String number = s.split("_")[1];
+            sb.append(number).append(",");
+        }
+        String result = sb.toString();
+// 去掉最后一个逗号
+        if (result.length() > 0) {
+            result = result.substring(0, result.length() - 1);
+        }
+        System.out.println(result);
+
+    }
+
     @org.junit.Test
     public void test() {
-        System.out.println("123");
+        //现在：1694590498
+        System.out.println(1111111111);
     }
 
     @org.junit.Test
@@ -20,19 +38,14 @@ public class Test {
         String key = "myKey";
         HashMap<String, Object> map = new HashMap<>();
         map.put("name", "get");
-        String jwt = Jwts.builder()
-                .signWith(SignatureAlgorithm.HS256, key)
-                .setClaims(map)
-                .compact();
+        String jwt = Jwts.builder().signWith(SignatureAlgorithm.HS256, key).setClaims(map).compact();
         System.out.println(jwt); // eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiZ2V0In0.RiKlMMNgv3XRDcZtxgukAEpOHv_Q9pQQjDPPuPa-Dw0
     }
 
     @org.junit.Test
     public void parseJsonWebToken() {
         String key = "myKey";
-        Jws<Claims> jws = Jwts.parser()
-                .setSigningKey(key)
-                .parseClaimsJws("eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiZ2V0In0.RiKlMMNgv3XRDcZtxgukAEpOHv_Q9pQQjDPPuPa-Dw0");
+        Jws<Claims> jws = Jwts.parser().setSigningKey(key).parseClaimsJws("eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiZ2V0In0.RiKlMMNgv3XRDcZtxgukAEpOHv_Q9pQQjDPPuPa-Dw0");
         System.out.println(jws.getBody());
         System.out.println(jws.getBody().get("name"));
     }
