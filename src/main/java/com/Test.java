@@ -6,7 +6,12 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.WeekFields;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class Test {
 
@@ -48,6 +53,15 @@ public class Test {
         Jws<Claims> jws = Jwts.parser().setSigningKey(key).parseClaimsJws("eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiZ2V0In0.RiKlMMNgv3XRDcZtxgukAEpOHv_Q9pQQjDPPuPa-Dw0");
         System.out.println(jws.getBody());
         System.out.println(jws.getBody().get("name"));
+    }
+
+    @org.junit.Test
+    public void testWeek() {
+        long timestamp = System.currentTimeMillis() / 1000; // 转换为秒级时间戳
+        LocalDate date = Instant.ofEpochSecond(timestamp).atZone(ZoneId.systemDefault()).toLocalDate();
+        WeekFields weekFields = WeekFields.of(Locale.getDefault());
+        int week = date.get(weekFields.weekOfWeekBasedYear());
+        System.out.println("当前时间戳所在的周：" + week);
     }
 }
 
