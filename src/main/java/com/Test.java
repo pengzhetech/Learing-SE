@@ -8,7 +8,9 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.WeekFields;
 import java.util.HashMap;
 import java.util.Locale;
@@ -62,6 +64,28 @@ public class Test {
         WeekFields weekFields = WeekFields.of(Locale.getDefault());
         int week = date.get(weekFields.weekOfWeekBasedYear());
         System.out.println("当前时间戳所在的周：" + week);
+    }
+
+    @org.junit.Test
+    public void testMonth() {
+        long timestamp = System.currentTimeMillis() / 1000; // 将时间戳转换为秒级
+        LocalDate date = Instant.ofEpochSecond(timestamp).atZone(ZoneId.systemDefault()).toLocalDate();
+        Month month = date.getMonth();
+
+        // 创建DateTimeFormatter对象，并使用M模式来获取月份的阿拉伯数字表示
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M");
+        String arabicMonth = formatter.format(month);
+
+        System.out.println("时间戳所在的阿拉伯数字月份：" + arabicMonth);
+    }
+
+    @org.junit.Test
+    public void testSplit() {
+        String[] bizLevers = "跨境专用-卖家__其他__app操作咨询".split("__");
+        System.out.println(bizLevers);
+        System.out.println(bizLevers[0]);
+        System.out.println(bizLevers[1]);
+        System.out.println(bizLevers[2]);
     }
 }
 
