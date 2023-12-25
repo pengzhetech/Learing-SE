@@ -12,8 +12,7 @@ import java.time.Month;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.WeekFields;
-import java.util.HashMap;
-import java.util.Locale;
+import java.util.*;
 
 public class Test {
 
@@ -81,12 +80,28 @@ public class Test {
 
     @org.junit.Test
     public void testSplit() {
-        String[] bizLevers = "跨境专用-卖家__其他__app操作咨询".split("__");
-        System.out.println(bizLevers);
-        System.out.println(bizLevers[0]);
-        System.out.println(bizLevers[1]);
-        System.out.println(bizLevers[2]);
+        Map<String, String> mao = new HashMap<>();
+        System.out.println(String.valueOf(mao.get("wtrwe")));
+        String communityIdentifyRecords = "";
+        List<String> list = Arrays.asList(communityIdentifyRecords.split("\\|"));
+        System.out.println(list);
     }
+
+    @org.junit.Test
+    public void testSplitF() {
+        String s = "fsdf";
+        String[] s1 = s.split("_");
+        System.out.println(s1);
+        System.out.println(s1.length);
+
+
+
+        String s2 = "fsdf_234";
+        String[] s12 = s2.split("_");
+        System.out.println(s12);
+        System.out.println(s12.length);
+    }
+
 }
 
 
