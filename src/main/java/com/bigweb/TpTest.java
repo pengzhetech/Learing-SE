@@ -32,8 +32,8 @@ public class TpTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(System.currentTimeMillis() - startTime);
-        System.out.println(list.size());
+        System.out.println("useTp---time--->" + (System.currentTimeMillis() - startTime));
+        System.out.println("useTp---size--->" + list.size());
     }
 
     public void nonUseTp(int count) {
@@ -49,8 +49,8 @@ public class TpTest {
                 e.printStackTrace();
             }
         }
-        System.out.println(System.currentTimeMillis() - startTime);
-        System.out.println(list.size());
+        System.out.println("nonUseTp---time--->" + (System.currentTimeMillis() - startTime));
+        System.out.println("nonUseTp---time--->" + list.size());
     }
 
     @Test
