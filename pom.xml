@@ -10,6 +10,13 @@
 
     <dependencies>
 
+        <!-- 基础架构部门提供-->
+        <dependency>
+            <groupId>com.poizon</groupId>
+            <artifactId>fusion-utils</artifactId>
+            <version>2.0.6</version>
+        </dependency>
+
         <dependency>
             <groupId>org.ow2.asm</groupId>
             <artifactId>asm</artifactId>
