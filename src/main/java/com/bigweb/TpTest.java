@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class TpTest {
     @Test
     public void test() {
-        int count = 200000;
+        int count = 20005500;
         useTp(count);
         nonUseTp(count);
     }
