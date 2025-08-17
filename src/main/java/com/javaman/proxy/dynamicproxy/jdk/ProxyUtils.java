@@ -3,12 +3,14 @@ package com.javaman.proxy.dynamicproxy.jdk;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import lombok.Data;
 import sun.misc.ProxyGenerator;
 
 /**
  * @author pengzhe
  * @date 2019-07-02 19:45
  */
+@Data
 public class ProxyUtils {
     /*
      * 将根据类信息 动态生成的二进制字节码保存到硬盘中，
