@@ -9,6 +9,7 @@ import java.util.Queue;
 
 public class Test1 {
 
+
     @Test
     public void test() {
         String s = "001";
