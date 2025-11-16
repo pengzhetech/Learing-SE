@@ -32,7 +32,7 @@ public class TpTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("useTp---time--->" + (System.currentTimeMillis() - startTime));
+        System.out.println("useTp--f-time--->" + (System.currentTimeMillis() - startTime));
         System.out.println("useTp---size--->" + list.size());
     }
 
